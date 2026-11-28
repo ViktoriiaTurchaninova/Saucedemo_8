@@ -2,7 +2,6 @@ package tests;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -22,6 +21,7 @@ public class BaseTest {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/yandexdriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
+        options.addArguments("headless");
 
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
@@ -34,4 +34,3 @@ public class BaseTest {
         driver.quit();
     }
 }
-
